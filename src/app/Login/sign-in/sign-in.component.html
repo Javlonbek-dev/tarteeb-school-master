@@ -1,0 +1,25 @@
+<div id="sign-in-wrapper">
+  <div  class="sign-in">
+    <div class="form-img">
+      <img src="../../../assets/SignInHat.c0636635.svg" alt="" />
+    </div>
+    <h3>Log in to your account</h3>
+    <form class="form" [formGroup]="singInForm">
+
+      <div class="input-container">
+        <input formControlName="email" required/>
+        <span>Email</span>
+        <small *ngIf="singInForm.controls['email'].dirty && singInForm.hasError('required','email')">*Email  is required</small>
+      </div>
+
+      <div class="input-container">
+        <input formControlName="password" required/>
+        <span id="place">Password</span>
+        <small *ngIf="singInForm.controls['password'].dirty && singInForm.hasError('required','password')">*Password  is required</small>
+      </div>
+      <button (click)="onSubmit()" class="btn" type="submit">Sign In</button>
+    </form>
+    <p>Don't have an account yet? <span  routerLink="/signup">Sign Up</span></p>
+  </div>
+  <img class="back" src="../../../assets/SignInBG.4484b7e6.svg" alt="" />
+</div>

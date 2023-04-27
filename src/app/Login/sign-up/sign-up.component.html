@@ -1,0 +1,64 @@
+<div id="sign-up-wrapper">
+  <div class="image-content">
+    <div>
+      <img src="../../../assets/Group 109.svg" alt="">
+      <div class="image-content-info">
+        <h1 routerLink="/navbar">Tarteeb</h1>
+        <p>In Search Of The Genius</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="form-content">
+    <div  class="sign-up">
+      <h2>Set Up your account</h2>
+      <form class="form" [formGroup]="singUpForm">
+        <div class="input-container">
+          <input placeholder="First Name" required formControlName="firstName" />
+          <small *ngIf="singUpForm.controls['firstName'].dirty && singUpForm.hasError('required','firstName')">*First Name is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Last Name" required formControlName="lastName"/>
+          <small *ngIf="singUpForm.controls['lastName'].dirty && singUpForm.hasError('required','lastName')">*Last Name is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Phone Number" type="text" required formControlName="phoneNumber"/>
+          <small *ngIf="singUpForm.controls['phoneNumber'].dirty && singUpForm.hasError('required','phoneNumber')">*Phone Number is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Email" type="email" required formControlName="email"/>
+          <small *ngIf="singUpForm.controls['email'].dirty && singUpForm.hasError('required','email')">*Email is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Password" required formControlName="password"/>
+          <small *ngIf="singUpForm.controls['password'].dirty && singUpForm.hasError('required','password')">*Password is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Telegram Username" required formControlName="telegramUsername"/>
+          <small *ngIf="singUpForm.controls['telegramUsername'].dirty && singUpForm.hasError('required','telegramUsername')">*Telegram Username is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Github Username" required formControlName="githubUsername"/>
+          <small *ngIf="singUpForm.controls['githubUsername'].dirty && singUpForm.hasError('required','githubUsername')">*Github Username is required</small>
+        </div>
+        <div class="input-container">
+          <input placeholder="Birth Date" type="date" required formControlName="birthDate"/>
+          <small *ngIf="singUpForm.controls['birthDate'].dirty && singUpForm.hasError('required','birthDate')">*Date of Birth is required</small>
+        </div>
+        <div class="input-container box">
+          <select class="custom-select" formControlName="teamId">
+            <option value="">Teams</option>
+            <option *ngFor="let team of teams" [value]="team.id">{{ team.teamName }}</option>
+          </select>
+          <small *ngIf="singUpForm.controls['teamId'].dirty && singUpForm.hasError('required','teamId')">*Team is required</small>
+        </div>
+        <p id="error"></p>
+        <button (click)="onSignup()" class="btn">Sign up</button>
+      </form>
+      <p>Already a member? <span  routerLink="/signin">Sign in</span></p>
+    </div>
+  </div>
+</div>
+
+
+<!--  -->
